@@ -14,17 +14,43 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $data = [
+        "welcome" => "Benvenuti",
+    ];
+
+    return view('home', $data);
 })->name('home');
 
 Route::get('/about', function () {
+
     return view('about');
 })->name('about');
 
 Route::get('/chi-siamo', function () {
-    return view('contacts');
+    $contacts = [
+        "weAre" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, quasi.",
+        "phone" => "123456",
+        "email" => "blabla@email.mail",
+        "location" => "via chissà dove",
+        "city" => "L'isola che non c'è",
+    ];
+
+    return view('contacts', $contacts);
 })->name('contacts');
 
 Route::get('/sweets-and-pastries', function () {
-    return view('ourCakes');
+    $cakes = [
+        "cake" => [
+            "Apple Pie",
+            "Brownies Cake",
+            "Charlotte di Marroni e Savoiard",
+            "Cheese Cake Variegato",
+            "Ciambella",
+            "Dolce con Mele e Noci",
+            "Plum Cake al Cioccolato",
+            "Torta Cioccolato e Rum",
+        ]
+    ];
+
+    return view('ourCakes', $cakes);
 })->name('cake');
